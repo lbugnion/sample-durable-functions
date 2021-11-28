@@ -37,3 +37,7 @@ GET http://localhost:7071/api/09
 ####################################################
 ### Await in Orchestrator properly
 GET http://localhost:7071/api/09A
+
+####################################################
+### Debugging
+GET http://localhost:7071/api/10
