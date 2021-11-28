@@ -1,0 +1,31 @@
+####################################################
+### Function chaining
+GET http://localhost:7071/api/01
+
+####################################################
+### Flow
+GET http://localhost:7071/api/02
+
+####################################################
+### FanOutFanIn
+GET http://localhost:7071/api/03
+
+####################################################
+### NonDeterministic
+GET http://localhost:7071/api/04
+
+####################################################
+### Deterministic
+GET http://localhost:7071/api/05
+
+####################################################
+### Serialization
+GET http://localhost:7071/api/06
+
+####################################################
+### Error and Hub
+GET http://localhost:7071/api/07
+
+####################################################
+### Serialization Recursion
+GET http://localhost:7071/api/08
