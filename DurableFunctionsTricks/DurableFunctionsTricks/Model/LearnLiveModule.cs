@@ -1,10 +1,18 @@
-﻿namespace DurableFunctionsTricks.Model
+﻿using Newtonsoft.Json;
+
+namespace DurableFunctionsTricks.Model
 {
     public class LearnLiveModule
     {
-        public LearnLiveSeries Parent { get; private set; }
+        [JsonIgnore]
+        public LearnLiveSeries Parent { get; set; }
 
-        public string Title { get; private set; }
+        public string Title { get; set; }
+
+        public LearnLiveModule(string title)
+        {
+            Title = title;
+        }
 
         public LearnLiveModule(LearnLiveSeries parent, string title)
         {

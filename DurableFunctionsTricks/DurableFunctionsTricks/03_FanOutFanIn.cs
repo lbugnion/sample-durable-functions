@@ -24,9 +24,17 @@ namespace DurableFunctionsTricks
 
             var tasks = new List<Task<string>>();
 
-            tasks.Add(context.CallActivityAsync<string>(nameof(FanOutFanInSayHello), "Tokyo"));
-            tasks.Add(context.CallActivityAsync<string>(nameof(FanOutFanInSayHello), "Seattle"));
-            tasks.Add(context.CallActivityAsync<string>(nameof(FanOutFanInSayHello), "London"));
+            tasks.Add(context.CallActivityAsync<string>(
+                nameof(FanOutFanInSayHello), 
+                "Tokyo"));
+
+            tasks.Add(context.CallActivityAsync<string>(
+                nameof(FanOutFanInSayHello), 
+                "Seattle"));
+
+            tasks.Add(context.CallActivityAsync<string>(
+                nameof(FanOutFanInSayHello), 
+                "London"));
 
             var outputs = await Task.WhenAll(tasks);
 

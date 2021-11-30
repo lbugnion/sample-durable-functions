@@ -55,7 +55,7 @@ namespace DurableFunctionsTricks
             [HttpTrigger(
                 AuthorizationLevel.Anonymous,
                 "get",
-                Route = "07")]
+                Route = "06")]
             HttpRequestMessage req,
             [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)

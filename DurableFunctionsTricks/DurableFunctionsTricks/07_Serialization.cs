@@ -27,7 +27,9 @@ namespace DurableFunctionsTricks
                 Name = "Tokyo"
             };
 
-            outputs.Add(await context.CallActivityAsync<string>(nameof(SerializationSayHello), info));
+            outputs.Add(await context.CallActivityAsync<string>(
+                nameof(SerializationSayHello), 
+                info));
 
             return outputs;
         }
@@ -47,7 +49,7 @@ namespace DurableFunctionsTricks
             [HttpTrigger(
                 AuthorizationLevel.Anonymous,
                 "get",
-                Route = "06")]
+                Route = "07")]
             HttpRequestMessage req,
             [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)

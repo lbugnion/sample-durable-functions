@@ -27,7 +27,9 @@ namespace DurableFunctionsTricks
             // TODO RESTORE
             //for (var index = 0; index < 10; index++)
             {
-                tasks.Add(context.CallActivityAsync<string>(nameof(DebuggingSayHello), null));
+                tasks.Add(context.CallActivityAsync<string>(
+                    nameof(DebuggingSayHello), 
+                    null));
             }
 
             var outputs = await Task.WhenAll(tasks);

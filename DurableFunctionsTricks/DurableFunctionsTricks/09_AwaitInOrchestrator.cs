@@ -19,7 +19,8 @@ namespace DurableFunctionsTricks
 
             var client = new HttpClient();
 
-            var randomName = await client.GetStringAsync("http://localhost:7071/api/get-random-name");
+            var randomName = await client.GetStringAsync(
+                "http://localhost:7071/api/get-random-name");
 
             // Replace "hello" with the name of your Durable Activity Function.
             outputs.Add(await context.CallActivityAsync<string>(

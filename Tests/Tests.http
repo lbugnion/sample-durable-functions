@@ -19,11 +19,11 @@ GET http://localhost:7071/api/04
 GET http://localhost:7071/api/05
 
 ####################################################
-### Serialization
+### Error and Hub
 GET http://localhost:7071/api/06
 
 ####################################################
-### Error and Hub
+### Serialization
 GET http://localhost:7071/api/07
 
 ####################################################

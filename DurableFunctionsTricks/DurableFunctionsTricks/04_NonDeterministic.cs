@@ -24,12 +24,15 @@ namespace DurableFunctionsTricks
 
             // Serial calls
 
+            // DON'T DO THIS
             var variable = Environment.GetEnvironmentVariable("MyVariable");
 
             var output = await context.CallActivityAsync<string>(
                 nameof(NonDeterministicSayHello), variable);
 
             outputs.Add(output);
+
+            // DON'T DO THIS
             File.AppendAllText("c:\\temp\\output.txt", output);
 
             output = await context.CallActivityAsync<string>(

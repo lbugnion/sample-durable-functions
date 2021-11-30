@@ -31,21 +31,21 @@ namespace DurableFunctionsTricks
 
             outputs.Add(output);
 
-            // TODO Save to Blob storage
+            // TODO Save to online storage / database
 
             output = await context.CallActivityAsync<string>(
                 nameof(DeterministicSayHello), "Tokyo");
 
             outputs.Add(output);
 
-            // TODO Save to Blob storage
+            // TODO Save to online storage / database
 
             output = await context.CallActivityAsync<string>(
                 nameof(DeterministicSayHello), "London");
 
             outputs.Add(output);
 
-            // TODO Save to Blob storage
+            // TODO Save to online storage / database
 
             return outputs;
         }

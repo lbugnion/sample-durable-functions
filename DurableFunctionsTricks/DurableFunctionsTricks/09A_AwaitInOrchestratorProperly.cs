@@ -17,7 +17,9 @@ namespace DurableFunctionsTricks
         {
             var outputs = new List<string>();
 
-            var randomName = await context.CallActivityAsync<string>(nameof(CallGetRandomName), null);
+            var randomName = await context.CallActivityAsync<string>(
+                nameof(CallGetRandomName), 
+                null);
 
             // Replace "hello" with the name of your Durable Activity Function.
             outputs.Add(await context.CallActivityAsync<string>(
@@ -33,7 +35,8 @@ namespace DurableFunctionsTricks
             ILogger log)
         {
             var client = new HttpClient();
-            var randomName = await client.GetStringAsync("http://localhost:7071/api/get-random-name");
+            var randomName = await client.GetStringAsync(
+                "http://localhost:7071/api/get-random-name");
             return randomName;
         }
 
