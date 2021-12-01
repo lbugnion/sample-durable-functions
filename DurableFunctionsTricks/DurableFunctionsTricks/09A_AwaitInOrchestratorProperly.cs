@@ -21,7 +21,6 @@ namespace DurableFunctionsTricks
                 nameof(CallGetRandomName), 
                 null);
 
-            // Replace "hello" with the name of your Durable Activity Function.
             outputs.Add(await context.CallActivityAsync<string>(
                 nameof(AwaitInOrchestratorProperlySayHello),
                 randomName));
