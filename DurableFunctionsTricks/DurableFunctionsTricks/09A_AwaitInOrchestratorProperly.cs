@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace DurableFunctionsTricks
@@ -60,7 +59,6 @@ namespace DurableFunctionsTricks
             IDurableOrchestrationClient starter,
             ILogger log)
         {
-            // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync(nameof(AwaitInOrchestratorProperly), null);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");

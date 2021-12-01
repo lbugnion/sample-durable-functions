@@ -54,7 +54,6 @@ namespace DurableFunctionsTricks
             [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
-            // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync(nameof(Serialization), null);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");

@@ -10,9 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace DurableFunctionsTricks
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public static class NonDeterministic
     {
         [FunctionName(nameof(NonDeterministic))]
@@ -39,12 +36,16 @@ namespace DurableFunctionsTricks
                 nameof(NonDeterministicSayHello), "Tokyo");
 
             outputs.Add(output);
+
+            // DON'T DO THIS
             File.AppendAllText("c:\\temp\\output.txt", output);
 
             output = await context.CallActivityAsync<string>(
                 nameof(NonDeterministicSayHello), "London");
 
             outputs.Add(output);
+
+            // DON'T DO THIS
             File.AppendAllText("c:\\temp\\output.txt", output);
 
             return outputs;
@@ -70,7 +71,6 @@ namespace DurableFunctionsTricks
             [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
-            // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync(nameof(NonDeterministic), null);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");

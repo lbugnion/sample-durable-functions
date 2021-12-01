@@ -10,9 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace DurableFunctionsTricks
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public static class Deterministic
     {
         [FunctionName(nameof(Deterministic))]
@@ -75,7 +72,6 @@ namespace DurableFunctionsTricks
                 MyVariable = Environment.GetEnvironmentVariable("MyVariable")
             };
 
-            // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync(nameof(Deterministic), info);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");

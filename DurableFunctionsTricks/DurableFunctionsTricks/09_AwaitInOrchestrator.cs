@@ -21,7 +21,6 @@ namespace DurableFunctionsTricks
             var randomName = await client.GetStringAsync(
                 "http://localhost:7071/api/get-random-name");
 
-            // Replace "hello" with the name of your Durable Activity Function.
             outputs.Add(await context.CallActivityAsync<string>(
                 nameof(AwaitInOrchestratorSayHello), 
                 randomName));
@@ -50,7 +49,6 @@ namespace DurableFunctionsTricks
             IDurableOrchestrationClient starter,
             ILogger log)
         {
-            // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync(nameof(AwaitInOrchestrator), null);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");

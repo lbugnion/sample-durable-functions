@@ -24,8 +24,7 @@ namespace DurableFunctionsTricks
 
             var tasks = new List<Task<string>>();
 
-            // TODO RESTORE
-            //for (var index = 0; index < 10; index++)
+            for (var index = 0; index < 10; index++)
             {
                 tasks.Add(context.CallActivityAsync<string>(
                     nameof(DebuggingSayHello), 
@@ -57,7 +56,6 @@ namespace DurableFunctionsTricks
             [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
-            // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync(nameof(Debugging), null);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
