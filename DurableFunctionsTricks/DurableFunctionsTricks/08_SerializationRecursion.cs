@@ -27,7 +27,10 @@ namespace DurableFunctionsTricks
 
             series.Modules = new List<LearnLiveModule>
             {
-                new LearnLiveModule(series, "First module")
+                new LearnLiveModule("First module")
+                {
+                    Parent = series
+                }
             };
 
             outputs.Add(await context.CallActivityAsync<string>(
