@@ -47,7 +47,7 @@ namespace DurableFunctionsTricks
             string name,
             ILogger log)
         {
-            await Task.Delay(Random.Shared.Next(10000, 15000));
+            await Task.Delay(Random.Shared.Next(5000, 10000));
             log.LogDebug($"Saying hello to {name}.");
             return $"Hello {name}!";
         }

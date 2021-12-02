@@ -22,7 +22,7 @@ namespace DurableFunctionsTricks
             // Serial calls
 
             // DON'T DO THIS
-            var variable = Environment.GetEnvironmentVariable("MyVariable");
+            var variable = Environment.GetEnvironmentVariable("USERNAME");
 
             var output = await context.CallActivityAsync<string>(
                 nameof(NonDeterministicSayHello), variable);

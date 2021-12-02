@@ -46,6 +46,8 @@ namespace DurableFunctionsTricks
             LearnLiveSeries series,
             ILogger log)
         {
+            // DO WORK
+
             return $"Found {series.Modules.Count} modules";
         }
 

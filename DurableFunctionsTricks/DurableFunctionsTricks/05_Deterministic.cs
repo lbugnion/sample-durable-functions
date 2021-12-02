@@ -69,7 +69,7 @@ namespace DurableFunctionsTricks
         {
             var info = new TriggerInfo
             {
-                MyVariable = Environment.GetEnvironmentVariable("MyVariable")
+                MyVariable = Environment.GetEnvironmentVariable("USERNAME")
             };
 
             string instanceId = await starter.StartNewAsync(nameof(Deterministic), info);
