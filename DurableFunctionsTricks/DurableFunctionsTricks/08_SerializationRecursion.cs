@@ -48,7 +48,9 @@ namespace DurableFunctionsTricks
         {
             // DO WORK
 
-            return $"Found {series.Modules.Count} modules";
+            var result = $"Found {series.Modules.Count} modules";
+            log.LogInformation(result);
+            return result;
         }
 
         [FunctionName(nameof(SerializationRecursionHttpStart))]
